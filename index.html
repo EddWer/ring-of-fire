@@ -12,8 +12,16 @@
         <h1>Ring of Fire</h1>
     </header>
     <main>
+        <div id="participantForm">
+            <label for="participantCount">Number of participants:</label>
+            <input type="number" id="participantCount" min="2" max="15" required>
+            <button id="submitParticipantsBtn">Submit</button>
+        </div>
+        <div id="gameContainer">
+            <div id="gameArea"></div>
+            <div id="flames"></div>
+        </div>
         <button id="startGameBtn">Start Game</button>
-        <div id="gameArea"></div>
     </main>
     <footer>
         <p>&copy; 2024 Eddie Werner</p>
