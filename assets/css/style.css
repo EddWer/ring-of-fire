@@ -24,3 +24,13 @@ button {
 button:hover {
     background-color: #0056b3;
 }
+
+#startGameBtn[disabled] {
+    opacity:0.5;
+    cursor:not-allowed;
+}
+
+#startGameBtn[disabled]:hover {
+    background-color:#007bff;
+    color:#fff;
+}
