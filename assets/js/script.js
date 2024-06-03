@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     const startGameBtn = document.getElementById("startGameBtn");
+    const rulesBtn = document.getElementById("rulesBtn");
     const gameArea = document.getElementById("gameArea");
     const participantForm = document.getElementById("participantForm");
     const submitParticipantsBtn = document.getElementById("submitParticipantsBtn");
@@ -54,29 +55,34 @@ document.addEventListener("DOMContentLoaded", function() {
 
         const participantInputs = document.getElementById("participantInputs");
         participantInputs.remove();
-
-        const gameButtons = document.getElementById("gameButtons");
-        gameButtons.innerHTML = "<button id='quitGameBtn'>Quit Game</button>";
-
-        const quitGameBtn = document.getElementById("quitGameBtn");
-        quitGameBtn.addEventListener("click", quitGame);
-
-        startGameBtn.remove();
-
     }
 
     function startGame() {
-        gameArea.innerHTML = "<p>Rules: [Insert Ring of Fire rules here]</p>";
+        startGameBtn.remove();
+        const gameButtons = document.getElementById("gameButtons");
+        const quitGameBtn = document.createElement("button");
+        quitGameBtn.id = "quitGameBtn";
+        quitGameBtn.textContent = "Quit game";
+        quitGameBtn.addEventListener("click", quitGame);
+        gameButtons.appendChild(quitGameBtn, rulesBtn);
     }
 
     function quitGame() {
         gameArea.innerHTML = "";
-
-        const participantForm = document.getElementById("participantForm");
         participantForm.style.display = "block";
-
+        quitGameBtn.remove();
         const gameButtons = document.getElementById("gameButtons");
-        gameButtons.innerHTML = "<button id='startGameBtn' disabled>Start game</button>";
+        const startGameBtnNew = document.createElement("button");
+        startGameBtnNew.id = "startGameBtn";
+        startGameBtnNew.textContent = "Start game";
+        startGameBtnNew.disabled = true;
+        gameButtons.insertBefore(startGameBtnNew, rulesBtn);
+        startGameBtnNew.addEventListener("click", startGame);
     }
+
+    rulesBtn.addEventListener ("click", function() {
+        alert("Rules");
+    });
+
 
 });
