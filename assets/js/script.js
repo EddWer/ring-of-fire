@@ -1,9 +1,11 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const startGameBtn = document.getElementById("startGameBtn");
     const rulesBtn = document.getElementById("rulesBtn");
     const gameArea = document.getElementById("gameArea");
     const participantForm = document.getElementById("participantForm");
     const submitParticipantsBtn = document.getElementById("submitParticipantsBtn");
+    const rulesBox = document.getElementById("rulesBox");
+    const rulesContent = document.getElementById("rulesContent");
+    const closeBtn = rulesContent.querySelector("#close");
 
     let participants = [];
     let cards = [];
@@ -58,6 +60,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function startGame() {
+        const startGameBtn = document.getElementById("startGameBtn");
         startGameBtn.remove();
         const gameButtons = document.getElementById("gameButtons");
         const quitGameBtn = document.createElement("button");
@@ -65,6 +68,7 @@ document.addEventListener("DOMContentLoaded", function() {
         quitGameBtn.textContent = "Quit game";
         quitGameBtn.addEventListener("click", quitGame);
         gameButtons.appendChild(quitGameBtn, rulesBtn);
+        gameButtons.insertBefore(quitGameBtn, rulesBtn);
     }
 
     function quitGame() {
@@ -81,8 +85,16 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     rulesBtn.addEventListener ("click", function() {
-        alert("Rules");
+        rulesBox.style.display = "block";
     });
 
+    closeBtn.addEventListener("click", function() {
+        rulesBox.style.display = "none";
+    });
 
+    window.addEventListener("click", function(event) {
+        if (event.target == rulesBox) {
+            rulesBox.style.display = "none";
+        }
+    });
 });

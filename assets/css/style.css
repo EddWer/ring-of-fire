@@ -34,3 +34,36 @@ button:hover {
     background-color:#007bff;
     color:#fff;
 }
+
+#rulesBox {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+#rulesContent {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #6b6969;
+    width:80%;
+    max-width: 500px;
+}
+
+#close {
+    color: #7f7e7e;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#close:hover, #close:focus {
+    color:#030303;
+    text-decoration:none;
+    cursor:pointer;
+}
