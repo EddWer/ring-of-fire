@@ -78,8 +78,8 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function createDeck() {
-        const suits = ['hearts', 'spades', 'diamonds', 'clubs']
-        const values = ['ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'jack', 'queen', 'king'];
+        const suits = ['Hearts', 'Spades', 'Diamonds', 'Clubs']
+        const values = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King'];
         let deck = [];
 
         suits.forEach(suit => {
@@ -121,17 +121,23 @@ document.addEventListener("DOMContentLoaded", function() {
         startGameBtnNew.disabled = true;
         gameButtons.insertBefore(startGameBtnNew, rulesBtn);
         startGameBtnNew.addEventListener("click", startGame);
+        const drawCardBtn = document.getElementById("drawCardBtn");
+        drawCardBtn.remove();
     }
 
     function drawCard() {
         if (deck.length === 0) {
-            alert("No more cards in the deck!");
+            gameArea.innerHTML = `<p>No more cards in the deck! Start a new game to continue playing</p>`;
             return;
         }
 
         const card = deck.pop();
-        gameArea.innerHTML = `<p>Card drawn: ${card}</p>`;
-        gameArea.appendChild(document.getElementById("drawCardBtn"));
+        const cardDisplay = document.createElement("p");
+        cardDisplay.textContent = `Card drawn: ${card}`;
+        const drawCardBtn = document.getElementById("drawCardBtn");
+        gameArea.innerHTML = "";
+        gameArea.appendChild(cardDisplay);
+        gameArea.appendChild(drawCardBtn);
     }
 
     rulesBtn.addEventListener ("click", function() {
