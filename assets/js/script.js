@@ -66,9 +66,37 @@ document.addEventListener("DOMContentLoaded", function() {
         const quitGameBtn = document.createElement("button");
         quitGameBtn.id = "quitGameBtn";
         quitGameBtn.textContent = "Quit game";
-        quitGameBtn.addEventListener("click", quitGame);
+        quitGameBtn.addEventListener("click", quitGame, playGame);
         gameButtons.appendChild(quitGameBtn, rulesBtn);
         gameButtons.insertBefore(quitGameBtn, rulesBtn);
+        generateCards();
+        displayCards();
+    }
+
+    function generateCards() {
+        const suits = ['hearts', 'spades', 'diamonds', 'clubs']
+        const values = ['ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'jack', 'queen', 'king'];
+
+        for (const suit of suits) {
+            for (const value of values) {
+                const card = { suit, value };
+                cards.push(card);
+            }
+        }
+    }
+
+    function displayCards() {
+        const cardContainer = document.createElement("div");
+        cardContainer.id = "cardContainer";
+        gameArea.appendChild(cardContainer);
+
+        cards.forEach(card => {
+            const cardImg = document.createElement("img");
+            cardImg.src = `imagesourcehere`;
+            cardImg.alt = `${card.value} of ${card.suit}`;
+            cardImg.classList.add("card");
+            cardContainer.appendChild(cardImg);
+        });
     }
 
     function quitGame() {
@@ -97,4 +125,8 @@ document.addEventListener("DOMContentLoaded", function() {
             rulesBox.style.display = "none";
         }
     });
+
+    function playGame() {
+
+    }
 });
