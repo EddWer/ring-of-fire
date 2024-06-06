@@ -6,9 +6,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const rulesBox = document.getElementById("rulesBox");
     const rulesContent = document.getElementById("rulesContent");
     const closeBtn = rulesContent.querySelector("#close");
-
-    let participants = [];
-    let cards = [];
+    const participants = [];
+    let deck = [];
 
     submitParticipantsBtn.addEventListener("click", function() {
         const participantCount = parseInt(document.getElementById("participantCount").value);
@@ -66,23 +65,35 @@ document.addEventListener("DOMContentLoaded", function() {
         const quitGameBtn = document.createElement("button");
         quitGameBtn.id = "quitGameBtn";
         quitGameBtn.textContent = "Quit game";
-        quitGameBtn.addEventListener("click", quitGame, playGame);
+        quitGameBtn.addEventListener("click", quitGame);
         gameButtons.appendChild(quitGameBtn, rulesBtn);
         gameButtons.insertBefore(quitGameBtn, rulesBtn);
-        generateCards();
-        displayCards();
+        const drawCardBtn = document.createElement("button");
+        drawCardBtn.id = "drawCardBtn";
+        drawCardBtn.textContent = "Draw card";
+        drawCardBtn.addEventListener("click", drawCard);
+        gameArea.innerHTML = "<p>Game has started. Draw a card to begin!</P>";
+        gameArea.appendChild(drawCardBtn);
+        deck = createDeck();
     }
 
-    function generateCards() {
+    function createDeck() {
         const suits = ['hearts', 'spades', 'diamonds', 'clubs']
         const values = ['ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'jack', 'queen', 'king'];
+        let deck = [];
 
-        for (const suit of suits) {
-            for (const value of values) {
-                const card = { suit, value };
-                cards.push(card);
-            }
+        suits.forEach(suit => {
+            values.forEach(value => {
+                deck.push(`${value} of ${suit}`);
+            });
+        });
+
+        for (let i = deck.length - 1; i > 0; i--) {
+            let j = Math.floor(Math.random() * (i + 1));
+            [deck[i], deck[j]] = [deck[j], deck[i]];
         }
+
+        return deck;
     }
 
     function displayCards() {
@@ -110,6 +121,17 @@ document.addEventListener("DOMContentLoaded", function() {
         startGameBtnNew.disabled = true;
         gameButtons.insertBefore(startGameBtnNew, rulesBtn);
         startGameBtnNew.addEventListener("click", startGame);
+    }
+
+    function drawCard() {
+        if (deck.length === 0) {
+            alert("No more cards in the deck!");
+            return;
+        }
+
+        const card = deck.pop();
+        gameArea.innerHTML = `<p>Card drawn: ${card}</p>`;
+        gameArea.appendChild(document.getElementById("drawCardBtn"));
     }
 
     rulesBtn.addEventListener ("click", function() {
