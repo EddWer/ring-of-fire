@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const closeBtn = rulesContent.querySelector("#close");
     const participants = [];
     let deck = [];
+    let currentPlayerIndex = 0;
 
     submitParticipantsBtn.addEventListener("click", function() {
         const participantCount = parseInt(document.getElementById("participantCount").value);
@@ -72,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function() {
         drawCardBtn.id = "drawCardBtn";
         drawCardBtn.textContent = "Draw card";
         drawCardBtn.addEventListener("click", drawCard);
-        gameArea.innerHTML = "<p>Game has started. Draw a card to begin!</P>";
+        gameArea.innerHTML = `<p>Game has started. ${participants[currentPlayerIndex]} please draw a card to begin!</P>`;
         gameArea.appendChild(drawCardBtn);
         deck = createDeck();
     }
@@ -137,6 +138,10 @@ document.addEventListener("DOMContentLoaded", function() {
         const drawCardBtn = document.getElementById("drawCardBtn");
         gameArea.innerHTML = "";
         gameArea.appendChild(cardDisplay);
+        currentPlayerIndex = (currentPlayerIndex + 1) % participants.length;
+        const nextPlayerMessage = document.createElement("p");
+        nextPlayerMessage.textContent = `${participants[currentPlayerIndex]}'s turn to draw a card!`;
+        gameArea.appendChild(nextPlayerMessage);
         gameArea.appendChild(drawCardBtn);
     }
 
@@ -153,8 +158,4 @@ document.addEventListener("DOMContentLoaded", function() {
             rulesBox.style.display = "none";
         }
     });
-
-    function playGame() {
-
-    }
 });
