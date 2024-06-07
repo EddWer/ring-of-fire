@@ -4,7 +4,7 @@ In this website you can play a simplified version of the Ring of Fire game!
 
 The purpose of this website is to liven up the party with a fun game! No need to bring a physical deck of cards to your next party!
 
-Link to live site here: <a href="https://eddwer.github.io/rhs/">Rulla Hatt Seltzer</a>
+Link to live site here: <a href="https://eddwer.github.io/ring-of-fire/">Ring of Fire</a>
 
 <img src="assets/images/readme/screen-sizes.png">
 
