@@ -1,3 +1,5 @@
+// jshint esversion: 6
+
 document.addEventListener("DOMContentLoaded", function() {
     const rulesBtn = document.getElementById("rulesBtn");
     const gameArea = document.getElementById("gameArea");
@@ -10,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let deck = [];
     let currentPlayerIndex = 0;
 
+    // Allows users to enter amount of participants
     submitParticipantsBtn.addEventListener("click", function() {
         const participantCount = parseInt(document.getElementById("participantCount").value);
         if (participantCount >= 2 && participantCount <= 15) {
@@ -19,8 +22,9 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
+    // Creates a text input for every participant, where they are able to choose a name
     function showParticipantInputs(count) {
-        participantForm.style.display = "none"
+        participantForm.style.display = "none";
 
         const inputContainer = document.createElement("div");
         inputContainer.id = "participantInputs";
@@ -34,6 +38,7 @@ document.addEventListener("DOMContentLoaded", function() {
             participants.push("");
         }
 
+        // Enables the users to submit their chosen names
         const submitNamesBtn = document.createElement("button");
         submitNamesBtn.textContent = "Submit names";
         submitNamesBtn.addEventListener("click", saveParticipantNames);
@@ -42,6 +47,7 @@ document.addEventListener("DOMContentLoaded", function() {
         gameArea.appendChild(inputContainer);
     }
 
+    // Saves the names of participants and displays the selected names
     function saveParticipantNames() {
         const inputElements = document.querySelectorAll("#participantInputs input");
         inputElements.forEach((input, index) => {
@@ -59,6 +65,7 @@ document.addEventListener("DOMContentLoaded", function() {
         participantInputs.remove();
     }
 
+    // Starts the game while also removing the "start game" button and replacing with a "quit game" button. Also creates a "draw card" button which is used when playing the game
     function startGame() {
         currentPlayerIndex = 0;
         const startGameBtn = document.getElementById("startGameBtn");
@@ -79,8 +86,9 @@ document.addEventListener("DOMContentLoaded", function() {
         deck = createDeck();
     }
 
+    // Creates all the values for the cards which are then shuffled and used in the game
     function createDeck() {
-        const suits = ['Hearts', 'Spades', 'Diamonds', 'Clubs']
+        const suits = ['Hearts', 'Spades', 'Diamonds', 'Clubs'];
         const values = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King'];
         let deck = [];
 
@@ -98,6 +106,7 @@ document.addEventListener("DOMContentLoaded", function() {
         return deck;
     }
 
+    // Quits the game and goes back to the starting screen, while replacing the "quit game" button with a "start game" button and removing the "draw card" button
     function quitGame() {
         gameArea.innerHTML = "";
         participantForm.style.display = "block";
@@ -113,6 +122,7 @@ document.addEventListener("DOMContentLoaded", function() {
         drawCardBtn.remove();
     }
 
+    // Draws a card for the selected player, until the deck is empty, at which point the player needs to start a new game
     function drawCard() {
         if (deck.length === 0) {
             gameArea.innerHTML = `<p>No more cards in the deck! Start a new game to continue playing</p>`;
