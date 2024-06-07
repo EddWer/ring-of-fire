@@ -1,39 +1,126 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Ring of Fire - Project Portfolio 2 - JavaScript
 
-Welcome,
+In this website you can play a simplified version of the Ring of Fire game!
 
-This is the Code Institute student template for Codeanywhere. If you are using Gitpod then you need [this template](https://github.com/Code-Institute-Org/gitpod-full-template) instead.  We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+The purpose of this website is to liven up the party with a fun game! No need to bring a physical deck of cards to your next party!
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **August 30th, 2023**
+Link to live site here: <a href="https://eddwer.github.io/rhs/">Rulla Hatt Seltzer</a>
 
-## Codeanywhere Reminders
+<img src="assets/images/readme/screen-sizes.png">
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere, in the terminal, type:
+## Target Audience
 
-`python3 -m http.server`
+The target audience for this website is friends groups who wants to play a fun game together.
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+## Features
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere with no-cache, you can use this alias for `python3 -m http.server`.
+#### Participants
 
-`http_server`
+The players are able to choose the amount of participants, as well as choose a name for each participant.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+<img src="assets/images/readme/participants.png">
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+<img src="assets/images/readme/participants2.png">
 
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+### Rules
 
-To log into the Heroku toolbelt CLI:
+By clicking on the "Rules" button, a box pops up where the user can read through all the rules of the game.
 
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+<img src="assets/images/readme/rules.png">
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+<img src="assets/images/readme/rules2.png">
 
----
 
-Happy coding!
+## Future features
+
+1. Getting an actual card deck in the game.
+2. Making the game area circular, with a fire animation around it.
+3. Some design changes to make the game more appealing.
+
+Unfortunately I ran out of time and needed to revert to a more simplistic version of what I was working on, hence the above features were removed.
+
+## Manual Testing
+
+<strong>Features Testing</strong>
+
+| Feature | Action | Effect |
+| ------------- | ------------- | ------------ |
+| Participant amount | Choose between 2 and 15 | Working correctly |
+| Submit button | Click to submit participation amount | Submits participation amount |
+| Rules button | Click to display list of rules | Displays list of rules |
+| Start game button | Click to start game | Starts game |
+| Quit game button | Click to quit game | Quits games ||
+
+<strong>Lighthouse</strong>
+
+<b>Test Scores:</b>
+
+* Performance: 100
+* Accessibility: 96
+* Best Practices: 100
+* SEO: 91
+
+Results: Overall the scores are great. 
+
+<img src="assets/images/readme/scores.png">
+
+<strong>Browsers</strong>
+
+<b>Supported Browsers and Devices</b>
+
+* Google Chrome
+* Mozilla Firefox
+* Microsoft Edge
+* Safari (Iphone)
+
+<b>Responsiveness testing</b> Manual testing has been conducted on all the above browsers.
+
+<b>Screen Sizes testing</b>
+
+| Device/Screen Size  | Performance |
+| ------------- | ------------- |
+| Desktop (1920x1080) | No issues |
+| Laptop (1366x768) | No issues |
+| Tablet (iPad) | No issues |
+| Mobile (iPhone X) | No issues |
+
+<strong>Known Issues</strong>
+
+* None!
+
+## Bugs
+
+Bug #1: When quitting and starting a new game, buttons would show almost intertwined. Solved this by creating a margin between them.
+
+Bug #2: When quitting and starting a new game, the previous participant amount would stack ontop of the new amount. Solved this by creating a while-loop that skips over any empty players.
+
+Bug #3: When quitting and starting a new game, the Start game and Quit game buttons would sometimes duplicate. Fixed this by adding code to delete the Start game button in the Start game function, and removing the Quit game button in the Quit game function.
+
+<strong>Validator Testing</strong>
+
+* HTML - No errors found. Validated via: https://validator.w3.org/nu/
+
+* CSS - No errors found when validating via: https://jigsaw.w3.org/css-validator/validator
+
+* JavaScript - No errors found. Validated via: https://jshint.com/
+
+
+## Deployment
+
+Project was deployed to GitHub pages. The steps to deploy are as follows:
+* In the GitHub repository, navigate to the Settings tab
+* From the source section drop-down menu, select the Main Branch
+* Once the main branch has been selected, the page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment.
+
+After site was deployed, it was changed a total of 0 times. Project is now complete.
+
+
+## Credits
+
+Image used for favicon: https://gauger.io/fonticon/
+
+Images used for playing card images where all taken from https://pixabay.com/ * *SCRAPPED IN THIS VERSION* *
+
+Code for creating a ring of flames around game area was created with the help of ChatGPT * *SCRAPPED IN THIS VERSION* *
+
+<b>No copyright fringement intended. This content is meant for educational purposes only.</b>
