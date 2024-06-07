@@ -60,6 +60,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function startGame() {
+        currentPlayerIndex = 0;
         const startGameBtn = document.getElementById("startGameBtn");
         startGameBtn.remove();
         const gameButtons = document.getElementById("gameButtons");
@@ -125,6 +126,10 @@ document.addEventListener("DOMContentLoaded", function() {
         gameArea.innerHTML = "";
         gameArea.appendChild(cardDisplay);
         currentPlayerIndex = (currentPlayerIndex + 1) % participants.length;
+        // Skips any empty player names, fixes issue with participant counts from previous games still showing
+        while (!participants[currentPlayerIndex]) {
+            currentPlayerIndex = (currentPlayerIndex + 1) % participants.length;
+        }
         const nextPlayerMessage = document.createElement("p");
         nextPlayerMessage.textContent = `${participants[currentPlayerIndex]}'s turn to draw a card!`;
         gameArea.appendChild(nextPlayerMessage);
