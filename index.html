@@ -12,14 +12,12 @@
         <h1>Ring of Fire</h1>
     </header>
     <main>
+        <div id="gameContainer">
+            <div id="gameArea"></div>
         <div id="participantForm">
             <label for="participantCount">Number of participants:</label>
             <input type="number" id="participantCount" min="2" max="15" required>
             <button id="submitParticipantsBtn">Submit</button>
-        </div>
-        <div id="gameContainer">
-            <div id="gameArea"></div>
-            <div id="flames"></div>
         </div>
         <div id="gameButtons">
         <button id="startGameBtn" disabled>Start game</button>
@@ -39,10 +37,23 @@
                 Cards all have different rules and actions which must be performed after that card has been drawn. Here is a list of actions for each card:
             </p>
             <ul>
-                <li></li>
+                <li>2's: Two is You! Give another player 3 sips.</li>
+                <li>3's: Three is Me! You have to drink 3 sips.</li>
+                <li>4's: Four is floor! Last player to point their finger to the floor drinks 3 sips.</li>
+                <li>5's: Five is Guys! Everyone who identifies as a guy drinks 3 sips.</li>
+                <li>6's: Six is Chicks! Everyone who identifies as a chick drinks 3 sips.</li>
+                <li>7's: Seven to Heaven! Last player to point their finger to the sky drinks 3 sips.</li>
+                <li>8's: Eight is Mate! Choose another player to be your drinking buddy. For every sip you take, they must take one as well!</li>
+                <li>9's: Nine is Rhyme! The player who drew the card starts by saying a word. Going clockwise, every player must then say a word that rhymes with the chosen words. First player to fail or hesitate for too long takes 5 sips!</li>
+                <li>10's: Categories! Name a category (e.g. dog breeds, car brands etc). Starting with the player who drew the card and going clockwise, every player names a word in that category until someones fails or hesitates for too long. Whoever fails first takes 5 sips!</li>
+                <li>Jacks: Never Have I Ever! Each player raises 3 fingers. Starting with the player who drew the card and going clockwise, say a "Never have I ever" statement. If any player has done what the statement says, that player lowers a finger. First player to lower all 3 fingers takes 5 sips!</li>
+                <li>Queens: Question Master! You are now the Question Master until another player draws a Queen. Any time another player answers one of your questions, that player must drink 3 sips.</li>
+                <li>Kings: King's cup! The player who draws this card pours a bit of their drink in a cup. The last player to draw a King must drink whatever is in the cup.</li>
+                <li>Aces: Rule maker! Decide a rule that all players (including yourself) must follow. If anyone breaks or does not follow the rule(s), that player takes 3 sips.</li>
             </ul>
         </div>
     </div>
+</div>
     </main>
     <footer>
         <p>&copy; 2024 Eddie Werner</p>

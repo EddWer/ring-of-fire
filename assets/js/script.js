@@ -97,20 +97,6 @@ document.addEventListener("DOMContentLoaded", function() {
         return deck;
     }
 
-    function displayCards() {
-        const cardContainer = document.createElement("div");
-        cardContainer.id = "cardContainer";
-        gameArea.appendChild(cardContainer);
-
-        cards.forEach(card => {
-            const cardImg = document.createElement("img");
-            cardImg.src = `imagesourcehere`;
-            cardImg.alt = `${card.value} of ${card.suit}`;
-            cardImg.classList.add("card");
-            cardContainer.appendChild(cardImg);
-        });
-    }
-
     function quitGame() {
         gameArea.innerHTML = "";
         participantForm.style.display = "block";

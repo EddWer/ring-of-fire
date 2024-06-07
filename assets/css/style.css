@@ -13,6 +13,13 @@ main {
     padding: 20px;
 }
 
+#gameContainer {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 button {
     padding: 10px;
     background-color: #007bff;
